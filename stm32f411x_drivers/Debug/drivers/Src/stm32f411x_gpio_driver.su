@@ -1,0 +1,2 @@
+stm32f411x_gpio_driver.c:28:6:GPIO_PClk_Ctl	16	static
+stm32f411x_gpio_driver.c:102:6:GPIO_Init	24	static
