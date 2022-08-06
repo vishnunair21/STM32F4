@@ -5,17 +5,17 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Src/led_toggle.c \
+../Src/led_button.c \
 ../Src/syscalls.c \
 ../Src/sysmem.c 
 
 OBJS += \
-./Src/led_toggle.o \
+./Src/led_button.o \
 ./Src/syscalls.o \
 ./Src/sysmem.o 
 
 C_DEPS += \
-./Src/led_toggle.d \
+./Src/led_button.d \
 ./Src/syscalls.d \
 ./Src/sysmem.d 
 

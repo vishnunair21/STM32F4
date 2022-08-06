@@ -282,8 +282,8 @@ typedef struct{
 #define RESET				DISABLE
 #define GPIO_PIN_SET		SET
 #define GPIO_PIN_RESET		RESET
-
-
+#define HIGH				GPIO_PIN_SET
+#define LOW					GPIO_PIN_RESET
 
 #include "stm32f411x_gpio_driver.h"
 
