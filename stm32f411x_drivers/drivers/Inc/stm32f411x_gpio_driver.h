@@ -128,4 +128,23 @@ void GPIO_PClk_Ctl(GPIO_RegDef_t *pGPIOx, uint8_t EnorDi);
 
 void GPIO_Init(GPIO_Handle_t *pGPIOHandle);
 
+void GPIO_DeInit(GPIO_RegDef_t *pGPIOx);
+
+uint8_t GPIO_ReadFromInputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber);
+
+uint16_t GPIO_ReadFromInputPort(GPIO_RegDef_t *pGPIOx);
+
+void GPIO_WriteToOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber, uint8_t value);
+
+void GPIO_WriteToOutputPort(GPIO_RegDef_t *pGPIOx, uint16_t value);
+
+void GPIO_TogglePin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber);
+
+
+
+
+
+
+
+
 #endif /* INC_STM32F411X_GPIO_DRIVER_H_ */

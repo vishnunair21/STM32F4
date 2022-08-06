@@ -157,3 +157,170 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
 
 	}
 }
+
+
+
+/*********************************************************************************
+ *
+ * @fn			- GPIO_DeInit
+ *
+ * @brief		- This function Resets GPIOx Registers
+ *
+ * @[param1]	- To reset GPIOx
+ *
+ * @return		- none
+ *
+ * @Note		- none
+ *
+ */
+
+void GPIO_DeInit(GPIO_RegDef_t *pGPIOx)
+{
+	if(pGPIOx == GPIOA)
+			{
+				GPIOA_REG_RESET();
+			}
+			else if(pGPIOx == GPIOB)
+			{
+				GPIOB_REG_RESET();
+			}
+			else if(pGPIOx == GPIOC)
+			{
+				GPIOC_REG_RESET();
+			}
+			else if(pGPIOx == GPIOD)
+			{
+				GPIOD_REG_RESET();
+			}
+			else if(pGPIOx == GPIOE)
+			{
+				GPIOE_REG_RESET();
+			}
+			else if(pGPIOx == GPIOH)
+			{
+				GPIOH_REG_RESET();
+			}
+}
+
+
+
+/*********************************************************************************
+ *
+ * @fn			- GPIO_ReadFromInputPin
+ *
+ * @brief		- Read the bit from input data register for corresponding pin
+ *
+ * @[param1]	- GPIOx Base Address
+ * @[param2]	- Pin Number to read
+ *
+ * @return		- 0 or 1
+ *
+ * @Note		- none
+ *
+ */
+
+uint8_t GPIO_ReadFromInputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber)
+{
+	uint8_t value;
+	value = ((pGPIOx->IDR >> PinNumber) & 0x00000001);
+
+	return value;
+}
+
+
+
+/*********************************************************************************
+ *
+ * @fn			- GPIO_ReadFromInputPort
+ *
+ * @brief		- Read the bit from input data register for given GPIO Port
+ *
+ * @[param1]	- GPIOx Base Address
+ *
+ * @return		- 0 or 1
+ *
+ * @Note		- none
+ *
+ */
+
+uint16_t GPIO_ReadFromInputPort(GPIO_RegDef_t *pGPIOx)
+{
+	uint16_t value;
+	value = pGPIOx->IDR;
+
+	return value;
+}
+
+
+
+/*********************************************************************************
+ *
+ * @fn			- GPIO_WriteToOutputPin
+ *
+ * @brief		- Write the bit to output data register for given GPIO Port
+ *
+ * @[param1]	- GPIOx Base Address
+ * @[param2]	- Pin Number to write
+ * @[param3]	- Value to be written 0 or 1
+ *
+ * @return		- none
+ *
+ * @Note		- none
+ *
+ */
+
+void GPIO_WriteToOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber, uint8_t value)
+{
+	if(value == GPIO_PIN_SET)
+	{
+		pGPIOx->ODR	|= (1 << PinNumber);
+	}
+	else
+	{
+		pGPIOx->ODR	&= ~(1 << PinNumber);
+	}
+
+}
+
+
+
+/*********************************************************************************
+ *
+ * @fn			- GPIO_WriteToOutputPort
+ *
+ * @brief		- Write the bit to output data register for given GPIO Port
+ *
+ * @[param1]	- GPIOx Base Address
+ * @[param2]	- Value to be written
+ *
+ * @return		- none
+ *
+ * @Note		- none
+ *
+ */
+
+void GPIO_WriteToOutputPort(GPIO_RegDef_t *pGPIOx, uint16_t value)
+{
+	pGPIOx->ODR	= value;
+
+}
+
+/*********************************************************************************
+ *
+ * @fn			- GPIO_TogglePin
+ *
+ * @brief		- Toggle the GPIO Pin
+ *
+ * @[param1]	- GPIOx Base Address
+ * @[param2]	- Pin Number to toggle
+ *
+ * @return		- none
+ *
+ * @Note		- none
+ *
+ */
+
+void GPIO_TogglePin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber)
+{
+	pGPIOx->ODR	^= (1 << PinNumber);
+}

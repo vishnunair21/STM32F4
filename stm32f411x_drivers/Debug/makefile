@@ -61,8 +61,8 @@ all: main-build
 main-build: stm32f411x_drivers.elf secondary-outputs
 
 # Tool invocations
-stm32f411x_drivers.elf: $(OBJS) $(USER_OBJS) /Volumes/SSD_400GB_VM/STM32F411E-Discovery_Board/DeviceDriverDevelopment/stm32f411x_drivers/STM32F411VETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "stm32f411x_drivers.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Volumes/SSD_400GB_VM/STM32F411E-Discovery_Board/DeviceDriverDevelopment/stm32f411x_drivers/STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f411x_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+stm32f411x_drivers.elf: $(OBJS) $(USER_OBJS) /Volumes/SSD_400GB_VM/STM32F411E-Discovery_Board/DeviceDriverDevelopment/STM32F4/stm32f411x_drivers/STM32F411VETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "stm32f411x_drivers.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Volumes/SSD_400GB_VM/STM32F411E-Discovery_Board/DeviceDriverDevelopment/STM32F4/stm32f411x_drivers/STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f411x_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

@@ -1,2 +1,8 @@
 stm32f411x_gpio_driver.c:28:6:GPIO_PClk_Ctl	16	static
 stm32f411x_gpio_driver.c:102:6:GPIO_Init	24	static
+stm32f411x_gpio_driver.c:177:6:GPIO_DeInit	16	static
+stm32f411x_gpio_driver.c:222:9:GPIO_ReadFromInputPin	24	static
+stm32f411x_gpio_driver.c:246:10:GPIO_ReadFromInputPort	24	static
+stm32f411x_gpio_driver.c:272:6:GPIO_WriteToOutputPin	16	static
+stm32f411x_gpio_driver.c:302:6:GPIO_WriteToOutputPort	16	static
+stm32f411x_gpio_driver.c:323:6:GPIO_TogglePin	16	static
