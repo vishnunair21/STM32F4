@@ -140,11 +140,11 @@ void GPIO_WriteToOutputPort(GPIO_RegDef_t *pGPIOx, uint16_t value);
 
 void GPIO_TogglePin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber);
 
+void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t EnorDi);
 
+void GPIO_IRQPriorityConfig(uint8_t IRQNumber,uint8_t IRQPriority);
 
-
-
-
+void GPIO_IRQHandling(uint8_t PinNumber);
 
 
 #endif /* INC_STM32F411X_GPIO_DRIVER_H_ */
