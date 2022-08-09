@@ -431,13 +431,13 @@ void GPIO_IRQConfig(uint8_t IRQNumber,  uint8_t EnorDi)
  *
  */
 
-void GPIO_IRQPriorityConfig(uint8_t IRQNumber, uint8_t IRQPriority)
+void GPIO_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority)
 {
 	// Find the IPRx Register
 	uint8_t iprx = IRQNumber / 4;
 	uint8_t iprx_section = IRQNumber % 4;
 
-	uint8_t shift_amount = (iprx_section * 4) + (8 - NVIC_IPR_BITS_IMPLEMENTED);
+	uint8_t shift_amount = (iprx_section * 8) + (8 - NVIC_IPR_BITS_IMPLEMENTED);
 
 	NVIC_IPR(iprx) |= (IRQPriority << shift_amount);
 }

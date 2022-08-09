@@ -50,7 +50,7 @@
  * note - only 4 bits are implemented in each section of IPR register
  */
 
-#define NVIC_IPR(x)							(*((__vo uint32_t *)0xE000EF00 + (x * 4)))
+#define NVIC_IPR(x)							(*( (__vo uint32_t *) (0xE000E400 + (x * 4) )))
 #define NVIC_IPR_BITS_IMPLEMENTED			4
 /*
  * Base addresses of Flash and SRAM
