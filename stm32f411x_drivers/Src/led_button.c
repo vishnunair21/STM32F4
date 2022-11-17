@@ -23,7 +23,7 @@ int main(void)
 
 
 	GPIOLed.pGPIOx = GPIOD;
-	GPIOLed.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_12;
+	GPIOLed.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_12 ;
 	GPIOLed.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_OUT;
 	GPIOLed.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
 	GPIOLed.GPIO_PinConfig.GPIO_PinOPType = GPIO_OTYPE_PP;
@@ -51,8 +51,8 @@ int main(void)
 		if(GPIO_ReadFromInputPin(GPIOA, GPIO_PIN_NO_0) == GPIO_BUTTON_PRESSED)
 		{
 			delay();
-			GPIO_TogglePin(GPIOD, GPIO_PIN_NO_12);
-			GPIO_TogglePin(GPIOD, GPIO_PIN_NO_14);
+		//	GPIO_TogglePin(GPIOD, GPIO_PIN_NO_12);
+		//	GPIO_TogglePin(GPIOD, GPIO_PIN_NO_14);
 		}
 
 	}

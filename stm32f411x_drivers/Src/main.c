@@ -17,6 +17,61 @@ void delay()
 
 
 
+void GPIO_LED_Toggle()
+{
+	GPIO_Handle_t GPIODLed;
+	GPIODLed.pGPIOx = GPIOD;
+	GPIODLed.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_12;
+	GPIODLed.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_OUT;
+	GPIODLed.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_HIGH;
+	GPIODLed.GPIO_PinConfig.GPIO_PinOPType = GPIO_OTYPE_PP;
+	GPIODLed.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD;
+
+
+	GPIO_Init(&GPIODLed);
+
+	GPIODLed.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_13;
+	GPIO_Init(&GPIODLed);
+
+	GPIODLed.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_14;
+	GPIO_Init(&GPIODLed);
+
+	GPIODLed.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_15;
+	GPIO_Init(&GPIODLed);
+
+
+	GPIO_TogglePin(GPIOD, GPIO_PIN_NO_12);
+	delay();
+
+	GPIO_TogglePin(GPIOD, GPIO_PIN_NO_13);
+	delay();
+
+	GPIO_TogglePin(GPIOD, GPIO_PIN_NO_14);
+	delay();
+
+	GPIO_TogglePin(GPIOD, GPIO_PIN_NO_15);
+	delay();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 int main(void)
 {
 	GPIO_Handle_t GPIOLed;
@@ -51,10 +106,13 @@ int main(void)
 	GPIO_IRQConfig(IRQ_NO_EXTI0, ENABLE);
 
 
+
+
 	while(1)
 	{
 		delay();
-		GPIO_TogglePin(GPIOD, GPIO_PIN_NO_14);
+		GPIO_LED_Toggle();
+	//	GPIO_TogglePin(GPIOD, GPIO_PIN_NO_14);
 
 	}
 	return 0;
